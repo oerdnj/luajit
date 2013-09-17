@@ -25,7 +25,7 @@ override_dh_auto_clean:
 	dh_auto_clean
 
 override_dh_auto_install:
-	make install PREFIX=/usr/ DESTDIR=$$PWD/debian/tmp/
+	make install PREFIX=/usr DESTDIR=$$PWD/debian/tmp/
 	mkdir -p debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)
 	mv debian/tmp/usr/lib/lua debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)
 	mv debian/tmp/usr/lib/pkgconfig debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)
@@ -33,6 +33,8 @@ override_dh_auto_install:
 	cd debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH) &&  \
 		ln -fs libluajit-5.1.so.$(ABI) libluajit-5.1.so &&  \
 		ln -fs libluajit-5.1.so.$(ABI) libluajit-5.1.so.$(ABIM)
+	sed -i '1a deb_host_multiarch=$(DEB_HOST_MULTIARCH)' \
+		debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/pkgconfig/*.pc
 	mkdir -p $(LUA_MULTIARCH_INCLUDE)
 	cp src/$(LUA_MULTIARCH) $(LUA_MULTIARCH_INCLUDE)
 

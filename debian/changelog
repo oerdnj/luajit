@@ -1,3 +1,12 @@
+luajit (2.0.2+dfsg-2) unstable; urgency=low
+
+  * Fix .pc to spit -L/usr/lib/$DEB_HOST_MULTIARCH 
+  * Fix .pc to spit multiarch aware INSTALL_CMOD 
+  * Add /usr/lib/$DEB_HOST_MULTIARCH/lua/jit/ to the paths luajit will look
+    at to find .lua files.  Meant to be used for luajit specific files. 
+
+ -- Enrico Tassi <gareuselesinge@debian.org>  Wed, 18 Sep 2013 00:06:13 +0200
+
 luajit (2.0.2+dfsg-1) unstable; urgency=low
 
   * New upstream release 
