@@ -46,7 +46,7 @@ Package: libluajit-5.1-dev
 Section: libdevel
 Multi-Arch: same
 Pre-Depends: multiarch-support
-Architecture: i386 amd64 kfreebsd-i386 armel armhf powerpc mips mipsel
+Architecture: i386 amd64 kfreebsd-i386 armel armhf powerpc powerpcspe mips mipsel
 Depends: ${shlibs:Depends}, ${misc:Depends}, libluajit-5.1-2 (= ${binary:Version})
 Description: Just in time compiler for Lua - development files
  This package contains header files and a statically linkable library for

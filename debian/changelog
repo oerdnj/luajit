@@ -1,3 +1,9 @@
+luajit (2.0.2+dfsg-3) unstable; urgency=medium
+
+  * Add powerpcspe architecture for the -dev package (Closes: #734700)
+
+ -- Enrico Tassi <gareuselesinge@debian.org>  Wed, 12 Feb 2014 11:10:29 +0100
+
 luajit (2.0.2+dfsg-2) unstable; urgency=low
 
   * Fix .pc to spit -L/usr/lib/$DEB_HOST_MULTIARCH 
