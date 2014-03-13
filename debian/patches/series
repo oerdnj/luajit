@@ -1,4 +1,0 @@
-0001-multi-arch-path.patch
-0002-use-deb_host_multiarch-in-for-L-flags.patch
-0003-INSTALL_CMOD-must-be-multiarch-aware.patch
-0004-Add-paths-for-luajit-only-.lua-files.patch
