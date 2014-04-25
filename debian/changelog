@@ -1,3 +1,9 @@
+luajit (2.0.3+dfsg-3) unstable; urgency=medium
+
+  * Fix FTBFS when /sbin is not in $PATH (Closes: 744917) 
+
+ -- Enrico Tassi <gareuselesinge@debian.org>  Fri, 25 Apr 2014 21:37:45 +0200
+
 luajit (2.0.3+dfsg-2) unstable; urgency=medium
 
   * Fix multilib value in .pc file (Closes: #743762)
