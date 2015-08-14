@@ -1,0 +1,36 @@
+From: Enrico Tassi <gareuselesinge@debian.org>
+Date: Fri, 14 Aug 2015 16:11:50 +0200
+Subject: consider Hurd as a POSIX system
+
+---
+ src/Makefile  | 3 +++
+ src/lj_arch.h | 2 ++
+ 2 files changed, 5 insertions(+)
+
+diff --git a/src/Makefile b/src/Makefile
+index 9551781..da57c92 100644
+--- a/src/Makefile
++++ b/src/Makefile
+@@ -327,6 +327,9 @@ else
+   ifeq (GNU/kFreeBSD,$(TARGET_SYS))
+     TARGET_XLIBS+= -ldl
+   endif
++  ifeq (GNU,$(TARGET_SYS))
++    TARGET_XLIBS+= -ldl
++  endif
+ endif
+ endif
+ endif
+diff --git a/src/lj_arch.h b/src/lj_arch.h
+index 0196eed..21f9f79 100644
+--- a/src/lj_arch.h
++++ b/src/lj_arch.h
+@@ -71,6 +71,8 @@
+ #define LUAJIT_OS	LUAJIT_OS_BSD
+ #elif (defined(__sun__) && defined(__svr4__)) || defined(__CYGWIN__)
+ #define LUAJIT_OS	LUAJIT_OS_POSIX
++#elif defined(__GNU__)
++#define LUAJIT_OS	LUAJIT_OS_POSIX
+ #else
+ #define LUAJIT_OS	LUAJIT_OS_OTHER
+ #endif
