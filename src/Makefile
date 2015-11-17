@@ -52,9 +52,9 @@ CCOPT_arm64=
 CCOPT_ppc=
 CCOPT_mips=
 #
-CCDEBUG=
+#CCDEBUG=
 # Uncomment the next line to generate debug information:
-#CCDEBUG= -g
+CCDEBUG= -g
 #
 CCWARN= -Wall
 # Uncomment the next line to enable more warnings:
