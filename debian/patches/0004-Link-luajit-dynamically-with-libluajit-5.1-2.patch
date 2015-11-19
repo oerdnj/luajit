@@ -1,0 +1,33 @@
+From: =?utf-8?q?Ond=C5=99ej_Sur=C3=BD?= <ondrej@sury.org>
+Date: Thu, 19 Nov 2015 17:22:28 +0200
+Subject: Link luajit dynamically with libluajit-5.1-2
+
+---
+ src/Makefile | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/src/Makefile b/src/Makefile
+index 56c17e9..1dbdbcd 100644
+--- a/src/Makefile
++++ b/src/Makefile
+@@ -578,7 +578,7 @@ E= @echo
+ # Make targets.
+ ##############################################################################
+ 
+-default all:	$(TARGET_T)
++default all:	$(TARGET_T) $(TARGET_O)
+ 
+ amalg:
+ 	@grep "^[+|]" ljamalg.c
+@@ -691,9 +691,9 @@ $(LUAJIT_SO): $(LJVMCORE_O)
+ 	$(Q)$(TARGET_LD) $(TARGET_ASHLDFLAGS) -o $@ $(LJVMCORE_DYNO) $(TARGET_ALIBS)
+ 	$(Q)$(TARGET_STRIP) $@
+ 
+-$(LUAJIT_T): $(TARGET_O) $(LUAJIT_O) $(TARGET_DEP)
++$(LUAJIT_T): $(LUAJIT_SO) $(LUAJIT_O) $(TARGET_DEP)
+ 	$(E) "LINK      $@"
+-	$(Q)$(TARGET_LD) $(TARGET_ALDFLAGS) -o $@ $(LUAJIT_O) $(TARGET_O) $(TARGET_ALIBS)
++	$(Q)$(TARGET_LD) $(TARGET_ALDFLAGS) -o $@ $(LUAJIT_O) $(TARGET_ALIBS) $(LUAJIT_SO)
+ 	$(Q)$(TARGET_STRIP) $@
+ 	$(E) "OK        Successfully built LuaJIT"
+ 
