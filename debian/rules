@@ -6,6 +6,8 @@ ABI=$(ABIM).$(ABIN).$(ABIO)
 
 export DPKG_GENSYMBOLS_CHECK_LEVEL=4
 
+include /usr/share/dpkg/default.mk
+
 %:
 	dh $@
 
@@ -13,9 +15,11 @@ override_dh_auto_build:
 	make amalg PREFIX=/usr CC=gcc MULTILIB=lib/$(DEB_HOST_MULTIARCH)
 
 override_dh_auto_install:
-	make install PREFIX=/usr DESTDIR=$$PWD/debian/tmp/ MULTILIB=lib/$(DEB_HOST_MULTIARCH) LDCONFIG="/sbin/ldconfig -n"
+	make install PREFIX=/usr DESTDIR=$(CURDIR)/debian/tmp/ MULTILIB=lib/$(DEB_HOST_MULTIARCH) LDCONFIG="/sbin/ldconfig -n"
 	sed -i 's?^multilib=.*?multilib=lib/$(DEB_HOST_MULTIARCH)?' \
 		debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/pkgconfig/*.pc
+	# debian doesn't allow multiple luajit versions, just rename the binary to luajit
+	mv $(CURDIR)/debian/tmp/usr/bin/luajit-* $(CURDIR)/debian/tmp/usr/bin/luajit
 
 override_dh_strip:
 	dh_strip --dbg-package=luajit-dbg
