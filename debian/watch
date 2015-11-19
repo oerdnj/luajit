@@ -3,4 +3,5 @@
 #
 version=3
 opts="uversionmangle=s/$/+dfsg/,uversionmangle=s/-beta/~beta/" \
-http://luajit.org/download.html download/LuaJIT-(.*).tar.gz
+http://luajit.org/download.html download/LuaJIT-(.*).tar.gz \
+debian sh debian/repack.stub
