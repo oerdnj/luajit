@@ -4,6 +4,8 @@ ABIN:=$(shell grep MINVER Makefile|cut -d = -f 2|tr -d ' ')
 ABIO:=$(shell grep RELVER Makefile|cut -d = -f 2|tr -d ' ')
 ABI=$(ABIM).$(ABIN).$(ABIO)
 
+export DPKG_GENSYMBOLS_CHECK_LEVEL=4
+
 %:
 	dh --with quilt $@
 
