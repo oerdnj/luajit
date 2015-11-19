@@ -27,8 +27,7 @@ Description: Just in time compiler for Lua programming language version 5.1
 Package: libluajit-5.1-common
 Architecture: all
 Multi-Arch: foreign
-Depends: ${misc:Depends},
-         ${shlibs:Depends}
+Depends: ${misc:Depends}, ${shlibs:Depends}
 Description: Just in time compiler for Lua - common files
  This package contains files needed by the LuaJIT interpreter/jitter as well
  by its embeddable (i.e. library) version.
@@ -59,3 +58,14 @@ Depends: libluajit-5.1-2 (= ${binary:Version}),
 Description: Just in time compiler for Lua - development files
  This package contains header files and a statically linkable library for
  LuaJIT.
+
+Package: luajit-dbg
+Architecture: amd64 armel armhf hurd-i386 i386 kfreebsd-i386 mips mipsel powerpc powerpcspe
+Multi-Arch: same
+Priority: extra
+Section: debug
+Depends: libluajit-5.1-2 (= ${binary:Version}) | luajit (= ${binary:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: Just in time compiler for Lua - debug
+ This package contains debugging symbols for LuaJIT.
