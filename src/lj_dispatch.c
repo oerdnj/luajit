@@ -319,11 +319,6 @@ int luaJIT_setmode(lua_State *L, int idx, int mode)
   return 1;  /* OK. */
 }
 
-/* Enforce (dynamic) linker error for version mismatches. See luajit.c. */
-LUA_API void LUAJIT_VERSION_SYM(void)
-{
-}
-
 /* -- Hooks --------------------------------------------------------------- */
 
 /* This function can be called asynchronously (e.g. during a signal). */

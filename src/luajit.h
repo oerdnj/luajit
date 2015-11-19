@@ -32,7 +32,6 @@
 
 #define LUAJIT_VERSION		"LuaJIT 2.1.0-beta1"
 #define LUAJIT_VERSION_NUM	20100  /* Version 2.1.0 = 02.01.00. */
-#define LUAJIT_VERSION_SYM	luaJIT_version_2_1_0_beta1
 #define LUAJIT_COPYRIGHT	"Copyright (C) 2005-2015 Mike Pall"
 #define LUAJIT_URL		"http://luajit.org/"
 
@@ -72,8 +71,5 @@ LUA_API void luaJIT_profile_start(lua_State *L, const char *mode,
 LUA_API void luaJIT_profile_stop(lua_State *L);
 LUA_API const char *luaJIT_profile_dumpstack(lua_State *L, const char *fmt,
 					     int depth, size_t *len);
-
-/* Enforce (dynamic) linker error for version mismatches. Call from main. */
-LUA_API void LUAJIT_VERSION_SYM(void);
 
 #endif

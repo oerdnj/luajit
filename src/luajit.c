@@ -512,7 +512,6 @@ static int pmain(lua_State *L)
   int flags = 0;
   globalL = L;
   if (argv[0] && argv[0][0]) progname = argv[0];
-  LUAJIT_VERSION_SYM();  /* linker-enforced version check */
   script = collectargs(argv, &flags);
   if (script < 0) {  /* invalid args? */
     print_usage();
