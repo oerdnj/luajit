@@ -1,3 +1,23 @@
+luajit (2.1.0~beta1+dfsg-1) experimental; urgency=medium
+
+  * Imported Upstream version 2.1.0~beta1+dfsg (Closes: #791973)
+  * Rebase patches on top of 2.1.0~beta1+dfsg
+  * Add symbols file for libluajit-5.1-2 and check for symbols changes in
+    the library
+  * Use repack.stub from pkg-perl-tools to do the dfsg version mangling
+  * Add a patch that removes the version symbol from the symbol table, we
+    enforce the library matching inside the packaging
+  * Add some close coupling between luajit, libluajit-5.1-2 and
+    libluajit-5.2-dev
+  * Bump the dh compat to 9 to enable hardening build
+  * Enable debugging symbols and create the -dbg package with debugging
+    symbols (Closes: #805384)
+  * Enable all architectures (Closes: #744948, #712975)
+  * Rename the luajit-<version> binary just to luajit (Closes: #619981)
+  * Link luajit dynamically with libluajit-5.1-2 (Closes: #781729)
+
+ -- Ondřej Surý <ondrej@debian.org>  Thu, 19 Nov 2015 16:59:55 +0200
+
 luajit (2.0.4+dfsg-1) unstable; urgency=medium
 
   * New upstream release (Close: #789321)
