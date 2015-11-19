@@ -12,7 +12,7 @@ Package: luajit
 Architecture: i386 amd64 kfreebsd-i386 armel armhf powerpc powerpcspe mips mipsel hurd-i386
 Multi-Arch: foreign
 Pre-Depends: ${misc:Pre-Depends}
-Depends: ${shlibs:Depends}, ${misc:Depends}, libluajit-5.1-common (= ${source:Version})
+Depends: ${shlibs:Depends}, ${misc:Depends}, libluajit-5.1-common (= ${source:Version}), libluajit-5.1-2 (= ${binary:Version})
 Description: Just in time compiler for Lua programming language version 5.1
  LuaJIT implements the full set of language features defined by Lua 5.1. The
  virtual machine (VM) is API- and ABI-compatible to the standard Lua interpreter
